@@ -13,8 +13,11 @@ Modified to detect Wowwee Rovio bot in images, as part of a robotics assignment 
 * OpenCV
 * Beautiful Soup 4.x
 
-### to run
+### To run
 `python sina.py`
 or
 `python3 sina.py` 
 if you have multiple versions of python
+
+### credits
+I'm using Kam Woh Ng's (@kamwoh) pre-trained Rovio model in this code, and lots of his guidance.
