@@ -93,8 +93,8 @@ def isRovio(img_path):
     # print("Predicted boxes:\n")
     # print('   class   conf xmin   ymin   xmax   ymax')
     # print(y_pred_thresh[0])
-    return (y_pred_thresh[0])
+    return (y_pred_thresh[0][0])
     # classes = ['background',
     #            'rovio','rovio']
 
-print(isRovio('./images/207.JPEG'))
+print(isRovio('./images/207.JPEG')[0])
