@@ -95,8 +95,28 @@ def isRovio(img_path):
     # print("Predicted boxes:\n")
     # print('   class   conf xmin   ymin   xmax   ymax')
     # print(y_pred_thresh[0])
-    return (y_pred_thresh[0][0].tolist())
-    # classes = ['background',
-    #            'rovio','rovio']
+    
+    
+    # visualize
 
-print(type(isRovio('./images/207.JPEG')))
+    colors = plt.cm.hsv(np.linspace(0, 1, 3)).tolist()
+    classes = ['background',
+               'rovio','rovio']
+    # plt.figure(figsize=(20,12))
+    plt.imshow(orig_images[0])
+    current_axis = plt.gca()
+
+    for box in y_pred_thresh[0]:
+        # Transform the predicted bounding boxes for the 300x300 image to the original image dimensions.
+        xmin = box[2] * orig_images[0].shape[1] / img_width
+        ymin = box[3] * orig_images[0].shape[0] / img_height
+        xmax = box[4] * orig_images[0].shape[1] / img_width
+        ymax = box[5] * orig_images[0].shape[0] / img_height
+        color = colors[int(box[0])]
+        label = '{}: {:.2f}'.format(classes[int(box[0])], box[1])
+        current_axis.add_patch(plt.Rectangle((xmin, ymin), xmax-xmin, ymax-ymin, color=color, fill=False, linewidth=2))  
+        current_axis.text(xmin, ymin, label, size='x-large', color='white', bbox={'facecolor':color, 'alpha':1.0})
+    
+    plt.show()
+    return (y_pred_thresh[0][0].tolist())
+print(isRovio('./images/207.JPEG'))
