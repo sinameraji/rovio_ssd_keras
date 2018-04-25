@@ -1,3 +1,5 @@
+# Input: image path
+# output: list 
 def isRovio(img_path):
     from keras import backend as K
     from keras.models import load_model
@@ -93,8 +95,8 @@ def isRovio(img_path):
     # print("Predicted boxes:\n")
     # print('   class   conf xmin   ymin   xmax   ymax')
     # print(y_pred_thresh[0])
-    return (y_pred_thresh[0][0])
+    return (y_pred_thresh[0][0].tolist())
     # classes = ['background',
     #            'rovio','rovio']
 
-print(isRovio('./images/207.JPEG')[0])
+print(type(isRovio('./images/207.JPEG')))
