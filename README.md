@@ -14,9 +14,9 @@ Modified to detect Wowwee Rovio bot in images, as part of a robotics assignment 
 * Beautiful Soup 4.x
 
 ### To run
-`python sina.py`
+`python isRovio.py`
 or
-`python3 sina.py` 
+`python3 isRovio.py` 
 if you have multiple versions of python
 
 ### credits
